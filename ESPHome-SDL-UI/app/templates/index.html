@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPHome SDL UI - Spicy Limes IO</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://spicylimes.io/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://spicylimes.io/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://spicylimes.io/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://spicylimes.io/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://spicylimes.io/favicon/safari-pinned-tab.svg" color="#84cc16">
+    <meta name="msapplication-TileColor" content="#1f2937">
+    <meta name="theme-color" content="#1f2937">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        [x-cloak] { display: none !important; }
+        .terminal {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hexagon background pattern */
+        .hexagon-bg {
+            background-color: #111827;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23374151' fill-opacity='0.15'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Title gradient */
+        .title-gradient {
+            background: linear-gradient(135deg, #84cc16 0%, #65a30d 25%, #4d7c0f 50%, #6b7280 75%, #4b5563 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="hexagon-bg min-h-screen text-gray-100 flex flex-col">
+    <div x-data="sdlApp()" x-cloak class="container mx-auto px-4 py-8 max-w-7xl flex-grow">
+
+        <!-- Header Banner -->
+        <header class="mb-8 bg-gray-800/70 rounded-xl p-6 border border-gray-700 backdrop-blur-sm">
+            <div class="flex justify-between items-start">
+                <!-- Left side: Logo, Title and subtitle -->
+                <div class="flex items-center gap-4">
+                    <img src="https://spicylimes.io/_images/_logos/spicylimes-logo.png" alt="SpicyLimes IO" class="w-16 h-16 rounded-lg shadow-lg">
+                    <div>
+                        <h1 class="text-4xl font-bold title-gradient">
+                            ESPHome SDL UI
+                        </h1>
+                        <p class="text-gray-400 mt-1 flex items-center gap-2">
+                            <span>Upload, validate, and test ESPHome configs on SDL2 platform</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- Right side: Stacked status badges -->
+                <div class="flex flex-col gap-2 text-sm">
+                    <span class="bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-center">
+                        <i class="fas fa-check-circle"></i> SDL2 Ready
+                    </span>
+                    <span x-text="'ESPHome: ' + version" class="bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-center"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Upload Section -->
+        <div class="bg-gray-800 rounded-xl shadow-2xl p-8 mb-6 border border-gray-700">
+            <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                <i class="fas fa-upload text-blue-400"></i> Upload ESPHome Config
+            </h2>
+
+            <div class="border-2 border-dashed rounded-lg p-8 text-center transition-colors"
+                 :class="isDragging ? 'border-blue-500 bg-blue-900/20' : 'border-gray-600 hover:border-blue-500'"
+                 @dragover.prevent="isDragging = true"
+                 @dragleave.prevent="isDragging = false"
+                 @drop.prevent="handleFileDrop($event)">
+                <input type="file" id="fileInput" accept=".yaml,.yml" @change="handleFileUpload" class="hidden">
+                <label for="fileInput" class="cursor-pointer block">
+                    <i class="fas fa-cloud-upload-alt text-6xl mb-4" :class="isDragging ? 'text-blue-400' : 'text-gray-500'"></i>
+                    <p class="text-lg mb-2">Click to upload or drag and drop</p>
+                    <p class="text-sm text-gray-400">ESPHome YAML configuration file (.yaml, .yml)</p>
+                </label>
+            </div>
+
+            <div x-show="uploadStatus" x-transition class="mt-4 p-4 rounded-lg" :class="uploadSuccess ? 'bg-green-900/30 text-green-400' : 'bg-red-900/30 text-red-400'">
+                <p x-text="uploadStatus"></p>
+            </div>
+        </div>
+
+        <!-- Current Config Info -->
+        <div x-show="currentFile" x-transition class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-6 border border-gray-700">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Current Config</h3>
+                    <p class="text-gray-400" x-text="currentFile"></p>
+                </div>
+                <div class="flex gap-2">
+                    <span x-show="isCompatible" class="bg-green-900/30 text-green-400 px-3 py-2 rounded-lg">
+                        <i class="fas fa-check-circle"></i> SDL2 Compatible
+                    </span>
+                    <span x-show="!isCompatible && currentFile" class="bg-yellow-900/30 text-yellow-400 px-3 py-2 rounded-lg">
+                        <i class="fas fa-exclamation-triangle"></i> Needs Fixes
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compatibility Issues -->
+        <div x-show="compatibilityIssues.length > 0" x-transition class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-6 border border-gray-700">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <i class="fas fa-exclamation-circle text-yellow-400"></i> Compatibility Issues
+            </h3>
+            <div class="space-y-2">
+                <template x-for="issue in compatibilityIssues" :key="issue.location">
+                    <div class="p-3 rounded-lg border" :class="issue.severity === 'error' ? 'bg-red-900/20 border-red-500/50' : 'bg-yellow-900/20 border-yellow-500/50'">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-circle text-xs mt-1" :class="issue.severity === 'error' ? 'text-red-400' : 'text-yellow-400'"></i>
+                            <div class="flex-1">
+                                <p class="font-semibold" x-text="issue.message"></p>
+                                <p class="text-sm text-gray-400 mt-1">Location: <code class="bg-gray-900 px-2 py-1 rounded" x-text="issue.location"></code></p>
+                                <p class="text-sm text-blue-400 mt-1"><i class="fas fa-lightbulb"></i> <span x-text="issue.suggestion"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <button @click="autoFix" :disabled="loading"
+                    class="mt-4 w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="fas fa-magic"></i> Auto-Fix Configuration
+            </button>
+        </div>
+
+        <!-- Modifications Log -->
+        <div x-show="modifications.length > 0" x-transition class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-6 border border-gray-700">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <i class="fas fa-list-check text-green-400"></i> Applied Modifications
+            </h3>
+            <div class="space-y-2">
+                <template x-for="mod in modifications" :key="mod.location">
+                    <div class="p-3 bg-gray-900 rounded-lg border border-gray-700">
+                        <div class="flex items-start gap-3">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                  :class="{
+                                      'bg-green-900/30 text-green-400': mod.action === 'added',
+                                      'bg-blue-900/30 text-blue-400': mod.action === 'changed',
+                                      'bg-red-900/30 text-red-400': mod.action === 'removed',
+                                      'bg-gray-700/30 text-gray-400': mod.action === 'kept',
+                                      'bg-purple-900/30 text-purple-400': mod.action === 'cleaned'
+                                  }"
+                                  x-text="mod.action.toUpperCase()"></span>
+                            <div class="flex-1">
+                                <p class="font-semibold" x-text="mod.location"></p>
+                                <p class="text-sm text-gray-400 mt-1" x-text="mod.reason"></p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div x-show="currentFile" x-transition class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <button @click="validateConfig" :disabled="loading"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="fas fa-check-double"></i> Validate
+            </button>
+
+            <button @click="compileConfig" :disabled="loading"
+                    class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="fas fa-cogs"></i> Compile
+            </button>
+
+            <button @click="runConfig" :disabled="loading || isRunning"
+                    class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="fas fa-play"></i> Run SDL2
+            </button>
+
+            <button @click="stopDisplay" :disabled="loading || !isRunning"
+                    class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="fas fa-stop"></i> Stop
+            </button>
+        </div>
+
+        <!-- Terminal Output -->
+        <div x-show="terminalOutput" x-transition class="bg-gray-900 rounded-xl shadow-2xl p-6 mb-6 border border-gray-700">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold flex items-center gap-2">
+                    <i class="fas fa-terminal text-green-400"></i> Terminal Output
+                </h3>
+                <div class="flex gap-2">
+                    <button @click="copyToClipboard(terminalOutput)" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-all">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                    <button @click="terminalOutput = ''" class="text-gray-400 hover:text-white px-2">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="terminal bg-black p-4 rounded-lg overflow-x-auto max-h-96 overflow-y-auto">
+                <pre class="text-green-400 whitespace-pre-wrap" x-text="terminalOutput"></pre>
+            </div>
+        </div>
+
+        <!-- Backups Section -->
+        <div class="bg-gray-800 rounded-xl shadow-2xl p-6 border border-gray-700 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold flex items-center gap-2">
+                    <i class="fas fa-save text-blue-400"></i> Backups
+                </h3>
+                <button @click="loadBackups" class="text-blue-400 hover:text-blue-300">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+            <div x-show="backups.length === 0" class="text-gray-400 text-center py-4">
+                No backups available
+            </div>
+            <div x-show="backups.length > 0" class="space-y-2">
+                <template x-for="backup in backups" :key="backup.name">
+                    <div class="p-3 bg-gray-900 rounded-lg border border-gray-700">
+                        <div class="flex justify-between items-center">
+                            <div class="flex-1">
+                                <p class="font-semibold" x-text="backup.name"></p>
+                                <p class="text-sm text-gray-400" x-text="new Date(backup.created).toLocaleString()"></p>
+                                <p class="text-xs text-gray-500 mt-1">Size: <span x-text="formatBytes(backup.size)"></span></p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button @click="downloadBackup(backup.name)" class="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm transition-all" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button @click="restoreBackup(backup.name)" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-sm transition-all" title="Restore">
+                                    <i class="fas fa-undo"></i>
+                                </button>
+                                <button @click="deleteBackup(backup.name)" class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg text-sm transition-all" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Logs Section - For Troubleshooting -->
+        <div class="bg-gray-800 rounded-xl shadow-2xl p-6 border border-gray-700">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold flex items-center gap-2">
+                    <i class="fas fa-file-alt text-yellow-400"></i> Application Logs
+                    <span class="text-sm font-normal text-gray-400">(for troubleshooting)</span>
+                </h3>
+                <div class="flex gap-2">
+                    <button @click="loadLogs" class="text-blue-400 hover:text-blue-300">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+            <div x-show="logs.length === 0" class="text-gray-400 text-center py-4">
+                No log files available
+            </div>
+            <div x-show="logs.length > 0" class="space-y-2">
+                <template x-for="log in logs" :key="log.name">
+                    <div class="p-3 bg-gray-900 rounded-lg border border-gray-700">
+                        <div class="flex justify-between items-center">
+                            <div class="flex-1">
+                                <p class="font-semibold" x-text="log.name"></p>
+                                <p class="text-sm text-gray-400" x-text="new Date(log.modified).toLocaleString()"></p>
+                                <p class="text-xs text-gray-500 mt-1">Size: <span x-text="formatBytes(log.size)"></span></p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button @click="viewLog(log.name)" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-sm transition-all" title="View">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button @click="downloadLog(log.name)" class="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm transition-all" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <!-- Log Viewer Modal -->
+            <div x-show="showLogViewer" x-transition class="mt-4 p-4 bg-gray-900 rounded-lg border border-gray-700">
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-semibold text-yellow-400" x-text="'Viewing: ' + currentLogFile"></h4>
+                    <div class="flex gap-2">
+                        <select @change="filterLogLevel($event.target.value)" class="bg-gray-800 text-white px-2 py-1 rounded text-sm border border-gray-600">
+                            <option value="">All Levels</option>
+                            <option value="DEBUG">DEBUG</option>
+                            <option value="INFO">INFO</option>
+                            <option value="WARNING">WARNING</option>
+                            <option value="ERROR">ERROR</option>
+                        </select>
+                        <button @click="copyToClipboard(logContent)" class="bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 rounded text-sm">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button @click="showLogViewer = false; currentLogFile = ''; logContent = ''" class="text-gray-400 hover:text-white px-2">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="terminal bg-black p-4 rounded-lg overflow-x-auto max-h-64 overflow-y-auto">
+                    <pre class="text-yellow-300 whitespace-pre-wrap text-xs" x-text="logContent"></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div x-show="loading" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700">
+                <div class="flex items-center gap-4">
+                    <i class="fas fa-spinner fa-spin text-4xl text-blue-400"></i>
+                    <p class="text-xl">Processing...</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800/70 border-t border-gray-700 backdrop-blur-sm py-4 mt-auto">
+        <div class="container mx-auto px-4 text-center text-sm text-gray-400">
+            <p>
+                © 2026 <a href="https://spicylimes.io" target="_blank" rel="noopener noreferrer" class="text-lime-400 hover:text-lime-300 font-semibold transition-colors">SpicyLimes.io</a>
+                <span class="mx-2">|</span>
+                <span class="italic">All Rights Reserved</span>
+                <span class="mx-2">|</span>
+                <a href="https://github.com/SpicyLimes?tab=repositories" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function sdlApp() {
+            return {
+                currentFile: '',
+                uploadStatus: '',
+                uploadSuccess: false,
+                isCompatible: false,
+                compatibilityIssues: [],
+                modifications: [],
+                terminalOutput: '',
+                loading: false,
+                isRunning: false,
+                isDragging: false,
+                backups: [],
+                logs: [],
+                showLogViewer: false,
+                currentLogFile: '',
+                logContent: '',
+                currentLogLevel: '',
+                version: 'Loading...',
+
+                async init() {
+                    await this.getVersion();
+                    await this.loadBackups();
+                    await this.loadLogs();
+                    await this.checkStatus();
+                    // Periodically check SDL2 status
+                    setInterval(() => this.checkStatus(), 5000);
+                },
+
+                async checkStatus() {
+                    try {
+                        const response = await fetch('/api/status');
+                        const data = await response.json();
+                        if (data.success) {
+                            this.isRunning = data.is_running;
+                        }
+                    } catch (error) {
+                        // If we can't reach the server, assume not running
+                        this.isRunning = false;
+                    }
+                },
+
+                async getVersion() {
+                    try {
+                        const response = await fetch('/api/version');
+                        const data = await response.json();
+                        if (data.success) {
+                            this.version = data.version;
+                        }
+                    } catch (error) {
+                        console.error('Failed to get version:', error);
+                    }
+                },
+
+                async handleFileUpload(event) {
+                    const file = event.target.files[0];
+                    if (!file) return;
+                    await this.uploadFile(file);
+                },
+
+                handleFileDrop(event) {
+                    this.isDragging = false;
+                    const files = event.dataTransfer.files;
+                    if (files.length === 0) return;
+
+                    const file = files[0];
+                    const validExtensions = ['.yaml', '.yml'];
+                    const fileExt = file.name.toLowerCase().substring(file.name.lastIndexOf('.'));
+
+                    if (!validExtensions.includes(fileExt)) {
+                        this.uploadSuccess = false;
+                        this.uploadStatus = 'Invalid file type. Please upload a .yaml or .yml file.';
+                        return;
+                    }
+
+                    // Create a synthetic event to reuse handleFileUpload
+                    this.uploadFile(file);
+                },
+
+                async uploadFile(file) {
+                    this.loading = true;
+                    this.uploadStatus = '';
+                    this.modifications = [];
+
+                    const formData = new FormData();
+                    formData.append('file', file);
+
+                    try {
+                        const response = await fetch('/api/upload', {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            this.currentFile = data.filename;
+                            this.isCompatible = data.is_compatible;
+                            this.compatibilityIssues = data.compatibility_issues || [];
+                            this.uploadSuccess = true;
+                            this.uploadStatus = 'File uploaded successfully!';
+                        } else {
+                            this.uploadSuccess = false;
+                            this.uploadStatus = data.error || 'Upload failed';
+                        }
+                    } catch (error) {
+                        this.uploadSuccess = false;
+                        this.uploadStatus = 'Upload failed: ' + error.message;
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                async autoFix() {
+                    if (!this.currentFile) return;
+
+                    this.loading = true;
+
+                    try {
+                        const response = await fetch(`/api/auto-fix/${this.currentFile}`, {
+                            method: 'POST'
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            this.modifications = data.modifications;
+                            this.compatibilityIssues = [];
+                            this.isCompatible = true;
+                            this.uploadStatus = 'Configuration auto-fixed successfully!';
+                            this.uploadSuccess = true;
+                            await this.loadBackups();
+                        }
+                    } catch (error) {
+                        this.uploadSuccess = false;
+                        this.uploadStatus = 'Auto-fix failed: ' + error.message;
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                async validateConfig() {
+                    if (!this.currentFile) return;
+
+                    this.loading = true;
+                    this.terminalOutput = '';
+
+                    try {
+                        const response = await fetch(`/api/validate/${this.currentFile}`, {
+                            method: 'POST'
+                        });
+
+                        const data = await response.json();
+                        this.terminalOutput = data.output;
+                    } catch (error) {
+                        this.terminalOutput = 'Validation failed: ' + error.message;
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                async compileConfig() {
+                    if (!this.currentFile) return;
+
+                    this.loading = true;
+                    this.terminalOutput = '';
+
+                    try {
+                        const response = await fetch(`/api/compile/${this.currentFile}`, {
+                            method: 'POST'
+                        });
+
+                        const data = await response.json();
+                        this.terminalOutput = data.output;
+                    } catch (error) {
+                        this.terminalOutput = 'Compilation failed: ' + error.message;
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                async runConfig() {
+                    if (!this.currentFile) return;
+
+                    this.loading = true;
+                    this.terminalOutput = '';
+
+                    try {
+                        const response = await fetch(`/api/run/${this.currentFile}`, {
+                            method: 'POST'
+                        });
+
+                        const data = await response.json();
+                        this.terminalOutput = data.output;
+
+                        if (data.success) {
+                            this.isRunning = true;
+                        }
+                    } catch (error) {
+                        this.terminalOutput = 'Run failed: ' + error.message;
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                async stopDisplay() {
+                    this.loading = true;
+
+                    try {
+                        const response = await fetch('/api/stop', {
+                            method: 'POST'
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            this.isRunning = false;
+                            if (data.was_running) {
+                                this.terminalOutput += '\n\nSDL2 display stopped.';
+                            } else {
+                                this.terminalOutput += '\n\nNo SDL2 display was running.';
+                            }
+                        }
+                    } catch (error) {
+                        this.terminalOutput += '\n\nStop failed: ' + error.message;
+                    } finally {
+                        this.loading = false;
+                        // Always refresh status after stop attempt
+                        await this.checkStatus();
+                    }
+                },
+
+                async loadBackups() {
+                    try {
+                        const response = await fetch('/api/backups');
+                        const data = await response.json();
+
+                        if (data.success) {
+                            this.backups = data.backups;
+                        }
+                    } catch (error) {
+                        console.error('Failed to load backups:', error);
+                    }
+                },
+
+                async restoreBackup(backupName) {
+                    if (!this.currentFile) {
+                        alert('Please upload a file first');
+                        return;
+                    }
+
+                    if (!confirm(`Restore backup ${backupName} to ${this.currentFile}?`)) {
+                        return;
+                    }
+
+                    this.loading = true;
+
+                    try {
+                        const response = await fetch(`/api/restore/${backupName}/${this.currentFile}`, {
+                            method: 'POST'
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            this.uploadStatus = 'Backup restored successfully!';
+                            this.uploadSuccess = true;
+                        }
+                    } catch (error) {
+                        this.uploadStatus = 'Restore failed: ' + error.message;
+                        this.uploadSuccess = false;
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                async downloadBackup(backupName) {
+                    try {
+                        window.location.href = `/api/backups/${backupName}/download`;
+                    } catch (error) {
+                        alert('Download failed: ' + error.message);
+                    }
+                },
+
+                async deleteBackup(backupName) {
+                    if (!confirm(`Delete backup ${backupName}? This cannot be undone.`)) {
+                        return;
+                    }
+
+                    this.loading = true;
+
+                    try {
+                        const response = await fetch(`/api/backups/${backupName}`, {
+                            method: 'DELETE'
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            await this.loadBackups();
+                            this.uploadStatus = `Deleted ${backupName}`;
+                            this.uploadSuccess = true;
+                        }
+                    } catch (error) {
+                        this.uploadStatus = 'Delete failed: ' + error.message;
+                        this.uploadSuccess = false;
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                async copyToClipboard(text) {
+                    try {
+                        await navigator.clipboard.writeText(text);
+                        const originalOutput = this.terminalOutput;
+                        this.terminalOutput = '✓ Copied to clipboard!\n\n' + originalOutput;
+                        setTimeout(() => {
+                            this.terminalOutput = originalOutput;
+                        }, 2000);
+                    } catch (error) {
+                        alert('Failed to copy: ' + error.message);
+                    }
+                },
+
+                formatBytes(bytes) {
+                    if (bytes === 0) return '0 Bytes';
+                    const k = 1024;
+                    const sizes = ['Bytes', 'KB', 'MB'];
+                    const i = Math.floor(Math.log(bytes) / Math.log(k));
+                    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+                },
+
+                // Log management functions
+                async loadLogs() {
+                    try {
+                        const response = await fetch('/api/logs');
+                        const data = await response.json();
+
+                        if (data.success) {
+                            this.logs = data.logs;
+                        }
+                    } catch (error) {
+                        console.error('Failed to load logs:', error);
+                    }
+                },
+
+                async viewLog(filename, level = '') {
+                    this.loading = true;
+                    this.currentLogFile = filename;
+                    this.currentLogLevel = level;
+
+                    try {
+                        let url = `/api/logs/${filename}?lines=500`;
+                        if (level) {
+                            url += `&level=${level}`;
+                        }
+
+                        const response = await fetch(url);
+                        const data = await response.json();
+
+                        if (data.success) {
+                            this.logContent = data.content || 'No log entries found.';
+                            this.showLogViewer = true;
+                        } else {
+                            alert('Failed to load log: ' + (data.error || 'Unknown error'));
+                        }
+                    } catch (error) {
+                        alert('Failed to load log: ' + error.message);
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                async filterLogLevel(level) {
+                    if (this.currentLogFile) {
+                        await this.viewLog(this.currentLogFile, level);
+                    }
+                },
+
+                downloadLog(filename) {
+                    window.location.href = `/api/logs/${filename}/download`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
