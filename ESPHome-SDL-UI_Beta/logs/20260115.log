@@ -1,0 +1,236 @@
+2026-01-15 02:49:59 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 02:49:59 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 02:49:59 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 02:56:43 - __main__ - INFO - SDL2 UI Project stopped
+2026-01-15 03:01:12 - backend.yaml_parser - ERROR - YAML parsing error: could not determine a constructor for the tag '!secret'
+  in "configs/esp32-cyd2usb-2.8in-test1.yaml", line 79, column 9
+2026-01-15 03:01:47 - backend.yaml_parser - INFO - Successfully loaded YAML: configs/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:02:03 - backend.yaml_parser - INFO - Successfully loaded YAML: configs/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:02:03 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_030203.yaml
+2026-01-15 03:03:30 - backend.yaml_parser - INFO - Successfully loaded YAML: configs/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:03:46 - backend.yaml_parser - INFO - Successfully loaded YAML: configs/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:05:40 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 03:05:40 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 03:05:40 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 03:07:14 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_030714.yaml
+2026-01-15 03:07:14 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_030714.yaml
+2026-01-15 03:07:39 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_030714_20260115_030739.yaml
+2026-01-15 03:07:39 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_030714.yaml
+2026-01-15 03:07:39 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_030714.yaml
+2026-01-15 03:07:39 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_030714.yaml
+2026-01-15 03:07:43 - backend.esphome_cli - INFO - Validating config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_030714.yaml
+2026-01-15 03:07:43 - backend.esphome_cli - WARNING - Config validation failed: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_030714.yaml
+2026-01-15 03:08:57 - __main__ - INFO - SDL2 UI Project stopped
+2026-01-15 03:09:23 - backend.yaml_parser - INFO - Successfully loaded YAML: test/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:09:30 - backend.yaml_parser - INFO - Successfully loaded YAML: test/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:09:30 - backend.yaml_parser - INFO - Successfully saved YAML: configs/esp32-cyd2usb-2.8in-test1-fixed.yaml
+2026-01-15 03:15:23 - backend.yaml_parser - INFO - Successfully loaded YAML: test/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:15:23 - backend.yaml_parser - INFO - Successfully saved YAML: configs/esp32-cyd2usb-2.8in-test1-SDL2.yaml
+2026-01-15 03:15:52 - backend.yaml_parser - INFO - Successfully loaded YAML: test/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:15:52 - backend.yaml_parser - INFO - Successfully loaded YAML: configs/esp32-cyd2usb-2.8in-test1-SDL2.yaml
+2026-01-15 03:16:52 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 03:16:52 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 03:16:52 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 03:17:25 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_031725.yaml
+2026-01-15 03:17:25 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_031725.yaml
+2026-01-15 03:17:29 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_031725_20260115_031729.yaml
+2026-01-15 03:17:29 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_031725.yaml
+2026-01-15 03:17:29 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_031725.yaml
+2026-01-15 03:17:29 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_031725.yaml
+2026-01-15 03:17:32 - backend.esphome_cli - INFO - Validating config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_031725.yaml
+2026-01-15 03:17:32 - backend.esphome_cli - WARNING - Config validation failed: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_031725.yaml
+2026-01-15 03:21:12 - __main__ - INFO - SDL2 UI Project stopped
+2026-01-15 03:21:53 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:21:53 - backend.yaml_parser - INFO - Successfully loaded YAML: test/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:21:53 - backend.yaml_parser - INFO - Successfully saved YAML: configs/esp32-cyd2usb-2.8in-test1-FINAL.yaml
+2026-01-15 03:23:33 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:23:33 - backend.yaml_parser - INFO - Successfully loaded YAML: test/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:23:33 - backend.yaml_parser - INFO - Successfully saved YAML: configs/esp32-cyd2usb-2.8in-test1-COMPLETE.yaml
+2026-01-15 03:24:21 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:24:21 - backend.yaml_parser - INFO - Successfully loaded YAML: test/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:24:21 - backend.yaml_parser - INFO - Successfully saved YAML: configs/test-bathroom-touchpad-SDL2.yaml
+2026-01-15 03:24:48 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:24:48 - backend.yaml_parser - INFO - Successfully loaded YAML: test/esp32-cyd2usb-2.8in-test1.yaml
+2026-01-15 03:24:48 - backend.yaml_parser - INFO - Successfully saved YAML: configs/bathroom-touchpad-SDL2-FINAL.yaml
+2026-01-15 03:25:35 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 03:25:35 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 03:25:35 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 03:25:48 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_032548.yaml
+2026-01-15 03:25:48 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:25:48 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_032548.yaml
+2026-01-15 03:25:54 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_032548_20260115_032554.yaml
+2026-01-15 03:25:54 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:25:54 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_032548.yaml
+2026-01-15 03:25:54 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_032548.yaml
+2026-01-15 03:25:54 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_032548.yaml
+2026-01-15 03:25:56 - backend.esphome_cli - INFO - Validating config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_032548.yaml
+2026-01-15 03:25:57 - backend.esphome_cli - WARNING - Config validation failed: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_032548.yaml
+2026-01-15 03:26:17 - __main__ - INFO - SDL2 UI Project stopped
+2026-01-15 03:29:56 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 03:29:56 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 03:29:56 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 03:33:10 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033310.yaml
+2026-01-15 03:33:10 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:33:10 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033310.yaml
+2026-01-15 03:33:16 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033310_20260115_033316.yaml
+2026-01-15 03:33:16 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:33:16 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033310.yaml
+2026-01-15 03:33:16 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033310.yaml
+2026-01-15 03:33:16 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033310.yaml
+2026-01-15 03:33:23 - backend.esphome_cli - INFO - Validating config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033310.yaml
+2026-01-15 03:33:24 - backend.esphome_cli - WARNING - Config validation failed: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033310.yaml
+2026-01-15 03:34:18 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033418.yaml
+2026-01-15 03:34:18 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:34:18 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033418.yaml
+2026-01-15 03:34:23 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033418_20260115_033423.yaml
+2026-01-15 03:34:23 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:34:23 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033418.yaml
+2026-01-15 03:34:23 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033418.yaml
+2026-01-15 03:34:23 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033418.yaml
+2026-01-15 03:34:26 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033418_20260115_033426.yaml
+2026-01-15 03:34:27 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033418.yaml
+2026-01-15 03:34:27 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033418.yaml
+2026-01-15 03:34:27 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033418.yaml
+2026-01-15 03:34:32 - backend.esphome_cli - INFO - Validating config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033418.yaml
+2026-01-15 03:34:32 - backend.esphome_cli - WARNING - Config validation failed: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033418.yaml
+2026-01-15 03:35:16 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 03:35:16 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 03:35:16 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 03:35:16 - __main__ - INFO - SDL2 UI Project stopped
+2026-01-15 03:35:27 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:27 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:35:27 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:34 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033527_20260115_033534.yaml
+2026-01-15 03:35:34 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:35:34 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:34 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:34 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:38 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033527_20260115_033538.yaml
+2026-01-15 03:35:38 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:38 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:38 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:42 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033527_20260115_033542.yaml
+2026-01-15 03:35:42 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:42 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:42 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033527.yaml
+2026-01-15 03:35:58 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033558.yaml
+2026-01-15 03:35:58 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:35:58 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033558.yaml
+2026-01-15 03:36:01 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033558_20260115_033601.yaml
+2026-01-15 03:36:01 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:36:01 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033558.yaml
+2026-01-15 03:36:01 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033558.yaml
+2026-01-15 03:36:01 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033558.yaml
+2026-01-15 03:37:22 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:37:22 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:37:22 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:37:25 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033722_20260115_033725.yaml
+2026-01-15 03:37:25 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:37:25 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:37:25 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:37:25 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:38:10 - backend.esphome_cli - INFO - Validating config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:38:10 - backend.esphome_cli - WARNING - Config validation failed: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:38:29 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033722_20260115_033829.yaml
+2026-01-15 03:38:29 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:38:29 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:38:29 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:38:32 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033722_20260115_033832.yaml
+2026-01-15 03:38:32 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:38:32 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:38:32 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033722.yaml
+2026-01-15 03:38:48 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033848.yaml
+2026-01-15 03:38:48 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:38:48 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033848.yaml
+2026-01-15 03:38:52 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033848_20260115_033852.yaml
+2026-01-15 03:38:52 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:38:52 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033848.yaml
+2026-01-15 03:38:52 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033848.yaml
+2026-01-15 03:38:52 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033848.yaml
+2026-01-15 03:39:47 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033947.yaml
+2026-01-15 03:39:47 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:39:47 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033947.yaml
+2026-01-15 03:39:50 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_033947_20260115_033950.yaml
+2026-01-15 03:39:50 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:39:50 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033947.yaml
+2026-01-15 03:39:50 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_033947.yaml
+2026-01-15 03:39:50 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_033947.yaml
+2026-01-15 03:40:14 - __main__ - INFO - SDL2 UI Project stopped
+2026-01-15 03:40:16 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 03:40:16 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 03:40:16 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 03:42:44 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034244.yaml
+2026-01-15 03:42:44 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:42:44 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034244.yaml
+2026-01-15 03:42:48 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_034244_20260115_034248.yaml
+2026-01-15 03:42:48 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:42:48 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034244.yaml
+2026-01-15 03:42:48 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034244.yaml
+2026-01-15 03:42:48 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_034244.yaml
+2026-01-15 03:42:55 - backend.esphome_cli - INFO - Validating config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034244.yaml
+2026-01-15 03:42:56 - backend.esphome_cli - WARNING - Config validation failed: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034244.yaml
+2026-01-15 03:43:40 - __main__ - INFO - SDL2 UI Project stopped
+2026-01-15 03:43:42 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 03:43:42 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 03:43:42 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 03:46:17 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034617.yaml
+2026-01-15 03:46:17 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:46:17 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034617.yaml
+2026-01-15 03:46:23 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_034617_20260115_034623.yaml
+2026-01-15 03:46:23 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:46:23 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034617.yaml
+2026-01-15 03:46:23 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034617.yaml
+2026-01-15 03:46:23 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_034617.yaml
+2026-01-15 03:46:28 - backend.esphome_cli - INFO - Validating config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034617.yaml
+2026-01-15 03:46:29 - backend.esphome_cli - INFO - Config validation successful: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_034617.yaml
+2026-01-15 03:48:07 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 03:48:07 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 03:48:07 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 03:48:07 - __main__ - INFO - SDL2 UI Project stopped
+2026-01-15 03:49:01 - __main__ - INFO - SDL2 UI Project stopped
+2026-01-15 03:49:14 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 03:49:14 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 03:49:14 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 03:50:02 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_034617_20260115_034623.yaml
+2026-01-15 03:50:04 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_034244_20260115_034248.yaml
+2026-01-15 03:50:05 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033947_20260115_033950.yaml
+2026-01-15 03:50:06 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033848_20260115_033852.yaml
+2026-01-15 03:50:07 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033722_20260115_033832.yaml
+2026-01-15 03:50:07 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033722_20260115_033829.yaml
+2026-01-15 03:50:08 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033722_20260115_033725.yaml
+2026-01-15 03:50:09 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033558_20260115_033601.yaml
+2026-01-15 03:50:10 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033527_20260115_033542.yaml
+2026-01-15 03:50:11 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033527_20260115_033538.yaml
+2026-01-15 03:50:11 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033527_20260115_033534.yaml
+2026-01-15 03:50:12 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033418_20260115_033426.yaml
+2026-01-15 03:50:13 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033418_20260115_033423.yaml
+2026-01-15 03:50:14 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_033310_20260115_033316.yaml
+2026-01-15 03:50:14 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_032548_20260115_032554.yaml
+2026-01-15 03:50:15 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_031725_20260115_031729.yaml
+2026-01-15 03:50:16 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_030714_20260115_030739.yaml
+2026-01-15 03:50:17 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_030203.yaml
+2026-01-15 03:50:30 - __main__ - INFO - Uploaded file: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:50:30 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:50:30 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:50:35 - backend.backup_manager - INFO - Backup created: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups/esp32-cyd2usb-2.8in-test1_20260115_035030_20260115_035035.yaml
+2026-01-15 03:50:35 - backend.yaml_parser - WARNING - Found 2 substitutions sections, will merge them
+2026-01-15 03:50:35 - backend.yaml_parser - INFO - Successfully loaded YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:50:35 - backend.yaml_parser - INFO - Successfully saved YAML: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:50:35 - __main__ - INFO - Auto-fixed config: esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:50:38 - backend.esphome_cli - INFO - Validating config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:50:38 - backend.esphome_cli - INFO - Config validation successful: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:51:46 - backend.esphome_cli - INFO - Compiling config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:51:54 - backend.esphome_cli - INFO - Config compilation successful: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:52:56 - backend.esphome_cli - INFO - Running config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:54:24 - backend.esphome_cli - INFO - SDL2 process stopped
+2026-01-15 03:54:41 - backend.esphome_cli - INFO - Validating config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:54:41 - backend.esphome_cli - INFO - Config validation successful: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:54:58 - backend.esphome_cli - INFO - Compiling config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:54:59 - backend.esphome_cli - INFO - Config compilation successful: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:55:08 - backend.esphome_cli - INFO - Running config: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/esp32-cyd2usb-2.8in-test1_20260115_035030.yaml
+2026-01-15 03:55:31 - __main__ - INFO - Deleted backup: esp32-cyd2usb-2.8in-test1_20260115_035030_20260115_035035.yaml
+2026-01-15 04:26:58 - __main__ - INFO - SDL2 UI Project stopped
+2026-01-15 21:16:52 - __main__ - INFO - SDL2 UI Project started
+2026-01-15 21:16:52 - __main__ - INFO - Config directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs
+2026-01-15 21:16:52 - __main__ - INFO - Backup directory: /home/devin/Documents/Projects/SDL-UI-Project/Version 1/backups
+2026-01-15 21:40:11 - __main__ - INFO - SDL2 UI Project stopped

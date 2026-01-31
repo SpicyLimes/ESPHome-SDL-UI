@@ -1,0 +1,47 @@
+{
+  "build_type": "release",
+  "env_name": "esphome-web-e5cd38",
+  "libsource_dirs": [
+    "/home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/.esphome/build/esphome-web-e5cd38/lib",
+    "/home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/.esphome/build/esphome-web-e5cd38/.piolibdeps/esphome-web-e5cd38",
+    "/home/devin/.platformio/lib"
+  ],
+  "defines": [
+    "PLATFORMIO=60118",
+    "ESPHOME_LOG_LEVEL=ESPHOME_LOG_LEVEL_DEBUG",
+    "SDL_BYTEORDER=4321",
+    "USE_HOST",
+    "_REENTRANT"
+  ],
+  "includes": {
+    "build": [
+      "/home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/.esphome/build/esphome-web-e5cd38/src",
+      "/usr/include/SDL2"
+    ],
+    "compatlib": [],
+    "toolchain": []
+  },
+  "cc_flags": [
+    "-Wno-sign-compare",
+    "-Wno-unused-but-set-variable",
+    "-Wno-unused-variable",
+    "-fno-exceptions"
+  ],
+  "cxx_flags": [
+    "-std=gnu++20",
+    "-Wno-sign-compare",
+    "-Wno-unused-but-set-variable",
+    "-Wno-unused-variable",
+    "-fno-exceptions"
+  ],
+  "cc_path": "/usr/bin/gcc",
+  "cxx_path": "/usr/bin/g++",
+  "gdb_path": "",
+  "prog_path": "/home/devin/Documents/Projects/SDL-UI-Project/Version 1/configs/.esphome/build/esphome-web-e5cd38/.pioenvs/esphome-web-e5cd38/program",
+  "svd_path": null,
+  "compiler_type": "gcc",
+  "targets": [],
+  "extra": {
+    "flash_images": []
+  }
+}
